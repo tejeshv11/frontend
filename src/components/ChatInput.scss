@@ -1,0 +1,229 @@
+@import '../styles/variables';
+
+.chat-input {
+  background: $bg-primary;
+  border-top: 1px solid $border-light;
+  padding: $spacing-lg;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+
+  &__form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.input-modes {
+  display: flex;
+  gap: $spacing-xs;
+  justify-content: center;
+}
+
+.mode-button {
+  padding: $spacing-xs $spacing-md;
+  background: $bg-tertiary;
+  color: $text-secondary;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: $border-light;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $primary-color;
+    color: $text-white;
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: $spacing-sm;
+  background: $bg-secondary;
+  border: 2px solid $border-light;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  transition: border-color $transition-fast;
+
+  &:focus-within {
+    border-color: $primary-color;
+  }
+}
+
+.message-textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  font-family: inherit;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text-primary;
+  min-height: 24px;
+  max-height: 120px;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.input-actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.voice-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: $bg-tertiary;
+  color: $text-secondary;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: $border-light;
+    color: $text-primary;
+  }
+
+  &.recording {
+    background: $error-color;
+    color: $text-white;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: $primary-color;
+  color: $text-white;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: $text-muted;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $text-muted;
+}
+
+.character-count {
+  font-weight: $font-weight-medium;
+}
+
+.input-hint {
+  text-align: right;
+}
+
+@media (max-width: $breakpoint-md) {
+  .chat-input {
+    padding: $spacing-md;
+  }
+
+  .input-modes {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mode-button {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+  }
+
+  .input-wrapper {
+    padding: $spacing-sm;
+  }
+
+  .voice-button,
+  .send-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .input-footer {
+    flex-direction: column;
+    gap: $spacing-xs;
+    text-align: center;
+  }
+}

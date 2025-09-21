@@ -1,0 +1,76 @@
+@import '../styles/variables';
+
+.message {
+  &--user {
+    .message-text {
+      color: $text-white;
+    }
+  }
+
+  &--assistant {
+    .message-text {
+      color: $text-primary;
+    }
+  }
+}
+
+.message-text {
+  line-height: 1.6;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+
+  &.streaming {
+    position: relative;
+  }
+
+  :global {
+    strong {
+      font-weight: $font-weight-bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    code {
+      background: rgba(0, 0, 0, 0.1);
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-sm;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  font-weight: normal;
+  color: inherit;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.message-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: $font-size-xs;
+  opacity: 0.7;
+}
+
+.metadata-item {
+  padding: $spacing-xs $spacing-sm;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: $radius-sm;
+  font-weight: $font-weight-medium;
+}

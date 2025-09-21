@@ -1,0 +1,92 @@
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  color: $text-primary;
+  background-color: $bg-secondary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 $spacing-lg;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-tertiary;
+  border-radius: $radius-sm;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-medium;
+  border-radius: $radius-sm;
+  
+  &:hover {
+    background: $border-dark;
+  }
+}
+
+// Focus styles
+*:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Selection styles
+::selection {
+  background-color: $primary-light;
+  color: $text-primary;
+}

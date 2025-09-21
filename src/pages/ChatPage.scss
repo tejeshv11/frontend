@@ -1,0 +1,25 @@
+@import '../styles/variables';
+
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background: $bg-secondary;
+}
+
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: $breakpoint-md) {
+  .chat-page {
+    height: 100vh;
+    height: 100dvh; // Dynamic viewport height for mobile
+  }
+}

@@ -1,0 +1,8 @@
+@import 'variables';
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, $bg-secondary 0%, $bg-tertiary 100%);
+}
